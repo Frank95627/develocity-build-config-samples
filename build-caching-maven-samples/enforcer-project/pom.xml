@@ -94,9 +94,9 @@
       <plugins>
         <plugin>
           <groupId>com.gradle</groupId>
-          <artifactId>gradle-enterprise-maven-extension</artifactId>
+          <artifactId>develocity-maven-extension</artifactId>
           <configuration>
-            <gradleEnterprise>
+            <develocity>
               <plugins>
                 <plugin>
                   <groupId>org.apache.maven.plugins</groupId>
@@ -105,6 +105,15 @@
                     <execution>
                       <id>enforce-banned-dependencies</id>
                       <inputs>
+                        <fileSets>
+                          <fileSet>
+                              <name>foo</name>
+                              <paths>
+                                  <path>/Users/jprinet/Desktop/work/src/gradle/gradle-enterprise-build-config-samples/localrepo${env.ITEST_IDX}/artifactory-itest.jar</path>
+                              </paths>
+                              <normalization>COMPILE_CLASSPATH</normalization>
+                          </fileSet>
+                        </fileSets>
                         <properties>
                           <property>
                             <name>fail</name>
@@ -224,7 +233,7 @@
                   </executions>
                 </plugin>
               </plugins>
-            </gradleEnterprise>
+            </develocity>
           </configuration>
         </plugin>
       </plugins>
